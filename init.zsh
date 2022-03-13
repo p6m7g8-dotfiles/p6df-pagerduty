@@ -33,7 +33,7 @@ p6df::modules::pagerduty::vscodes() {
 ######################################################################
 p6df::modules::pagerduty::langs() {
 
-  npm install -g pagerduty-cli
+  p6_js_npm_global_install "pagerduty-cli"
 
   p6_github_util_org_repos_clone "PagerDuty" "$P6_DFZ_SRC_FOCUSED_DIR"
 }
