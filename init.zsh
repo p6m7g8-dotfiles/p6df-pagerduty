@@ -16,8 +16,6 @@ p6df::modules::pagerduty::deps() {
 #
 # Function: p6df::modules::pagerduty::langs()
 #
-#  Depends:	 p6_github
-#  Environment:	 P6_DFZ_SRC_FOCUSED_DIR
 #>
 ######################################################################
 p6df::modules::pagerduty::langs() {
@@ -25,6 +23,14 @@ p6df::modules::pagerduty::langs() {
   p6_js_npm_global_install "pagerduty-cli"
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::pagerduty::clones()
+#
+#  Environment:	 P6_DFZ_SRC_FOCUSED_DIR
+#>
+######################################################################
 p6df::modules::pagerduty::clones() {
 
   p6_github_login_clone "PagerDuty" "$P6_DFZ_SRC_FOCUSED_DIR"

@@ -44,10 +44,9 @@
 
 #### p6df-pagerduty/init.zsh:
 
+- p6df::modules::pagerduty::clones()
 - p6df::modules::pagerduty::deps()
-- p6df::modules::pagerduty::init()
 - p6df::modules::pagerduty::langs()
-- p6df::modules::pagerduty::vscodes()
 
 
 
