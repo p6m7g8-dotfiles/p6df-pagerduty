@@ -36,8 +36,8 @@
 
 ```text
 .
-├── README.md
-└── init.zsh
+├── init.zsh
+└── README.md
 
 1 directory, 2 files
 ```
