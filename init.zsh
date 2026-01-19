@@ -31,19 +31,22 @@ p6df::modules::pagerduty::clones() {
 ######################################################################
 #<
 #
-# Function: str str = p6df::modules::pagerduty::prompt::line()
+# Function: str str = p6df::modules::pagerduty::prompt::mod()
 #
 #  Returns:
 #	str - str
 #
-#  Environment:	 PD_API_KEY
+#  Environment:	 P6_DFZ_PROFILE_PAGERDUTY PD_API_KEY
 #>
 ######################################################################
-p6df::modules::pagerduty::prompt::line() {
+p6df::modules::pagerduty::prompt::mod() {
 
-  local str="pagerduty:        pgollucci"
-  if ! p6_string_blank "$PD_API_KEY"; then
-    str="$str [api]"
+  local str
+  if ! p6_string_blank "$P6_DFZ_PROFILE_PAGERDUTY"; then
+    str="pagerduty:\t  $P6_DFZ_PROFILE_PAGERDUTY:"
+    if ! p6_string_blank "$PD_API_KEY"; then
+      str=$(p6_string_append "$str" "api" " ")
+    fi
   fi
 
   p6_return_str "$str"
