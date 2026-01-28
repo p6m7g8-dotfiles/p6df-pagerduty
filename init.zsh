@@ -42,8 +42,8 @@ p6df::modules::pagerduty::clones() {
 p6df::modules::pagerduty::prompt::mod() {
 
   local str
-  if ! p6_string_blank "$P6_DFZ_PROFILE_PAGERDUTY"; then
-    if ! p6_string_blank "$PD_API_KEY"; then
+  if p6_string_blank_NOT "$P6_DFZ_PROFILE_PAGERDUTY"; then
+    if p6_string_blank_NOT "$PD_API_KEY"; then
       str="pagerduty:\t  $P6_DFZ_PROFILE_PAGERDUTY:"
       str=$(p6_string_append "$str" "api" " ")
     fi
