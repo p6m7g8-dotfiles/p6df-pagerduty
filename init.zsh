@@ -22,8 +22,8 @@ p6df::modules::pagerduty::deps() {
 ######################################################################
 p6df::modules::pagerduty::clones() {
 
-  p6_github_login_clone "PagerDuty" "$P6_DFZ_SRC_FOCUSED_DIR"
-  p6_github_login_clone "PagerDuty-Samples" "$P6_DFZ_SRC_FOCUSED_DIR"
+  p6_github_cli_parallel_clone "PagerDuty" "$P6_DFZ_SRC_FOCUSED_DIR"
+  p6_github_cli_parallel_clone "PagerDuty-Samples" "$P6_DFZ_SRC_FOCUSED_DIR"
 
   p6_return_void
 }
