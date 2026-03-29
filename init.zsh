@@ -55,21 +55,22 @@ p6df::modules::pagerduty::prompt::mod() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::pagerduty::profile::on(profile, token)
+# Function: p6df::modules::pagerduty::profile::on(profile, code)
 #
 #  Args:
 #	profile -
-#	token -
+#	code - shell code block (export PD_API_KEY=...)
 #
 #  Environment:	 P6_DFZ_PROFILE_PAGERDUTY PD_API_KEY
 #>
 ######################################################################
 p6df::modules::pagerduty::profile::on() {
   local profile="$1"
-  local token="$2"
+  local code="$2"
+
+  p6_run_code "$code"
 
   p6_env_export "P6_DFZ_PROFILE_PAGERDUTY" "$profile"
-  p6_env_export "PD_API_KEY" "$token"
 
   p6_return_void
 }
@@ -77,15 +78,19 @@ p6df::modules::pagerduty::profile::on() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::pagerduty::profile::off()
+# Function: p6df::modules::pagerduty::profile::off(code)
+#
+#  Args:
+#	code - shell code block previously passed to profile::on
 #
 #  Environment:	 P6_DFZ_PROFILE_PAGERDUTY PD_API_KEY
 #>
 ######################################################################
 p6df::modules::pagerduty::profile::off() {
+  local code="$1"
 
+  p6_env_unset_from_code "$code"
   p6_env_export_un P6_DFZ_PROFILE_PAGERDUTY
-  p6_env_export_un PD_API_KEY
 
   p6_return_void
 }
