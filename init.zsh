@@ -31,66 +31,15 @@ p6df::modules::pagerduty::clones() {
 ######################################################################
 #<
 #
-# Function: str str = p6df::modules::pagerduty::prompt::mod()
+# Function: words pagerduty $PD_API_KEY = p6df::modules::pagerduty::profile::mod()
 #
 #  Returns:
-#	str - str
+#	words - pagerduty $PD_API_KEY
 #
-#  Environment:	 P6_DFZ_PROFILE_PAGERDUTY PD_API_KEY
+#  Environment:	 PD_API_KEY
 #>
 ######################################################################
-p6df::modules::pagerduty::prompt::mod() {
+p6df::modules::pagerduty::profile::mod() {
 
-  local str
-  if p6_string_blank_NOT "$P6_DFZ_PROFILE_PAGERDUTY"; then
-    if p6_string_blank_NOT "$PD_API_KEY"; then
-      str="pagerduty:\t  $P6_DFZ_PROFILE_PAGERDUTY:"
-      str=$(p6_string_append "$str" "api" " ")
-    fi
-  fi
-
-  p6_return_str "$str"
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::pagerduty::profile::on(profile, code)
-#
-#  Args:
-#	profile -
-#	code - shell code block (export PD_API_KEY=...)
-#
-#  Environment:	 P6_DFZ_PROFILE_PAGERDUTY PD_API_KEY
-#>
-######################################################################
-p6df::modules::pagerduty::profile::on() {
-  local profile="$1"
-  local code="$2"
-
-  p6_run_code "$code"
-
-  p6_env_export "P6_DFZ_PROFILE_PAGERDUTY" "$profile"
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::pagerduty::profile::off(code)
-#
-#  Args:
-#	code - shell code block previously passed to profile::on
-#
-#  Environment:	 P6_DFZ_PROFILE_PAGERDUTY PD_API_KEY
-#>
-######################################################################
-p6df::modules::pagerduty::profile::off() {
-  local code="$1"
-
-  p6_env_unset_from_code "$code"
-  p6_env_export_un P6_DFZ_PROFILE_PAGERDUTY
-
-  p6_return_void
+  p6_return_words 'pagerduty' "$"
 }
