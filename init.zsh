@@ -41,5 +41,5 @@ p6df::modules::pagerduty::clones() {
 ######################################################################
 p6df::modules::pagerduty::profile::mod() {
 
-  p6_return_words 'pagerduty' "$"
+  p6_return_words 'pagerduty' '$PD_API_KEY'
 }
