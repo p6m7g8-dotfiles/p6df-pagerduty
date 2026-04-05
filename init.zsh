@@ -31,10 +31,10 @@ p6df::modules::pagerduty::clones() {
 ######################################################################
 #<
 #
-# Function: words pagerduty $PD_API_KEY = p6df::modules::pagerduty::profile::mod()
+# Function: words pagerduty = p6df::modules::pagerduty::profile::mod()
 #
 #  Returns:
-#	words - pagerduty $PD_API_KEY
+#	words - pagerduty
 #
 #  Environment:	 PD_API_KEY
 #>

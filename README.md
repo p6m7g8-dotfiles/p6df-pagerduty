@@ -37,12 +37,7 @@ TODO: Add a short summary of this module.
 
 - `p6df::modules::pagerduty::clones()`
 - `p6df::modules::pagerduty::deps()`
-- `p6df::modules::pagerduty::profile::off()`
-- `p6df::modules::pagerduty::profile::on(profile, token)`
-  - Args:
-    - profile -
-    - token -
-- `str str = p6df::modules::pagerduty::prompt::mod()`
+- `words pagerduty = p6df::modules::pagerduty::profile::mod()`
 
 ## Hierarchy
 
